@@ -19,8 +19,10 @@ class ItemsTabBarController: UITabBarController {
     private func configureItems(){
 
         let router = ShowsRouter()
+        let routerFavorite = FavoriteRouter()
         let vcShowViewController = router.createView()
-        let vcFavoriteViewContriller = FavoriteViewController()
+        let presentsss = FavoritePresenter()
+        let vcFavoriteViewContriller = FavoriteViewController(presenter: presentsss)
         let vcSekeerViewController = SearchViewController()
                         
         vcShowViewController.tabBarItem.image = UIImage(systemName: "appletvremote.gen2.fill")

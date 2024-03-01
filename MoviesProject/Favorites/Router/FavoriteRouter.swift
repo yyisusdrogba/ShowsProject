@@ -6,9 +6,13 @@
 //
 
 import Foundation
+import UIKit
+
 
 class FavoriteRouter{
+
     
-    
-    
+    func getFavorite(model: FavoriteViewModel){
+
+    }
 }

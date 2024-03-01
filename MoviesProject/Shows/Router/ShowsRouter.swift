@@ -10,12 +10,14 @@ import UIKit
 
 class ShowsRouter: ShowsRouterProtocol{
     
+    var favoriteRouter: FavoriteRouter?
     var routerDetail: ShowDetailRouter?
     var showsViewController: ShowsViewController?
     
     
     func createView() -> UIViewController{
         routerDetail = ShowDetailRouter()
+        favoriteRouter = FavoriteRouter()
         let showsInteractor = ShowsInteractor()
         let showsPresenter = ShowsPresenter(interactor: showsInteractor, router: self)
         showsViewController = ShowsViewController(presenter: showsPresenter)
@@ -30,6 +32,6 @@ class ShowsRouter: ShowsRouterProtocol{
     }
     
     func favoriteDetails(favoriteModel: FavoriteViewModel){
-        
+        favoriteRouter?.getFavorite(model: favoriteModel)
     }
 }
