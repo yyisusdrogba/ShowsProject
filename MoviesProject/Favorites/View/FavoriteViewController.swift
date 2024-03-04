@@ -29,20 +29,53 @@ class FavoriteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+//        presenter.passShows()
+        setUpView()
+        tableView.dataSource = self
+        tableView.delegate = self
         view.backgroundColor = .green
+    }
+    
+    func setUpView(){
+        view.addSubview(tableView)
+        NSLayoutConstraint.activate([
+        
+            tableView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
+            tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            
+        ])
     }
 }
 
 extension FavoriteViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return presenter.favoritesShows.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteTableViewCell", for: indexPath) as! FavoriteTableViewCell
+        let model = presenter.favoritesShows[indexPath.row]
+        print("MODELOS:\(model)")
+        cell.configure(model: model)
         return cell
     }
 
+}
+
+extension FavoriteViewController: UpdateUI{
+    func obtainFavoritesShows(shows: [FavoriteViewModel]) {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+}
+
+extension FavoriteViewController: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath.row)
+    }
 }
 

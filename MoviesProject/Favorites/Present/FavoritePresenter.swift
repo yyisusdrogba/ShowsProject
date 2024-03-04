@@ -7,7 +7,17 @@
 
 import Foundation
 
-class FavoritePresenter{
-  
+protocol UpdateUI{
+    func obtainFavoritesShows(shows:[FavoriteViewModel])
+}
 
+class FavoritePresenter{
+      
+    var ui: UpdateUI?
+    var favoritesShows:[FavoriteViewModel] = []
+
+    func passShows() {
+        ui?.obtainFavoritesShows(shows: favoritesShows)
+    }
+    
 }
