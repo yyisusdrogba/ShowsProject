@@ -21,6 +21,7 @@ class FavoriteTableViewCell: UITableViewCell {
        let label = UILabel()
         label.font = .boldSystemFont(ofSize: 16)
         label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .white
         return label
     }()
 
@@ -42,8 +43,8 @@ class FavoriteTableViewCell: UITableViewCell {
             image.topAnchor.constraint(equalTo: topAnchor),
             image.bottomAnchor.constraint(equalTo: bottomAnchor),
             image.leadingAnchor.constraint(equalTo: leadingAnchor),
-            image.heightAnchor.constraint(equalToConstant: 150),
-            image.widthAnchor.constraint(equalToConstant: 100),
+            image.heightAnchor.constraint(equalToConstant: 200),
+            image.widthAnchor.constraint(equalToConstant: 150),
             
             title.topAnchor.constraint(equalTo: topAnchor),
             title.leadingAnchor.constraint(equalTo: image.trailingAnchor),

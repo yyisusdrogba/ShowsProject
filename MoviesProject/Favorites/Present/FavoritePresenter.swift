@@ -15,9 +15,19 @@ class FavoritePresenter{
       
     var ui: UpdateUI?
     var favoritesShows:[FavoriteViewModel] = []
-
+    var router: FavoriteRouter
+    
+    init(router: FavoriteRouter) {
+        self.router = router
+    }
+    
     func passShows() {
         ui?.obtainFavoritesShows(shows: favoritesShows)
+    }
+    
+    func passShowSelected(indexPath: Int){
+        let id = favoritesShows[indexPath].id
+        router.getFavoriteId(id: id)
     }
     
 }

@@ -34,10 +34,12 @@ class ItemsTabBarController: UITabBarController, UITabBarControllerDelegate{
         //MARK: - Configuration Views
         let favoriteRouter = FavoriteRouter()
         let favoriteInteractor = FavoriteInteractor()
-        let favoritePresenter = FavoritePresenter()
+        let favoritePresenter = FavoritePresenter(router: favoriteRouter)
         let favoriteView = FavoriteViewController(presenter: favoritePresenter)
         favoritePresenter.ui = favoriteView
         favoriteInteractor.presenter = favoritePresenter
+        favoriteRouter.favoriteViewController = favoriteView
+        favoriteRouter.favoriteDetailRouter = FavoriteDetailRouter()
         
         let showsInteractor = ShowsInteractor()
         let showsRouter = ShowsRouter()

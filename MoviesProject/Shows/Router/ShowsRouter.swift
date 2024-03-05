@@ -10,7 +10,6 @@ import UIKit
 
 class ShowsRouter: ShowsRouterProtocol{
     
-    var favoriteRouter: FavoriteRouter?
     var routerDetail: ShowDetailRouter?
     var showsViewController: ShowsViewController?
         

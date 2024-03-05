@@ -29,11 +29,10 @@ class FavoriteViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        presenter.passShows()
         setUpView()
         tableView.dataSource = self
         tableView.delegate = self
-        view.backgroundColor = .green
+        tableView.backgroundColor = UIColor(hex: "#3F5E5A")
     }
     
     func setUpView(){
@@ -58,6 +57,7 @@ extension FavoriteViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteTableViewCell", for: indexPath) as! FavoriteTableViewCell
         let model = presenter.favoritesShows[indexPath.row]
+        cell.backgroundColor = UIColor(hex: "#2D2D2A")
         print("MODELOS:\(model)")
         cell.configure(model: model)
         return cell
@@ -75,7 +75,8 @@ extension FavoriteViewController: UpdateUI{
 
 extension FavoriteViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(indexPath.row)
+        presenter.passShowSelected(indexPath: indexPath.row)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 
