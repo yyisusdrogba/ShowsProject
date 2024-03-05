@@ -419,12 +419,44 @@
 		ABF1D9A72B9682E100366B2D /* FavoriteDetails */ = {
 			isa = PBXGroup;
 			children = (
-				ABF1D9AA2B96845A00366B2D /* FavoriteDetailViewController.swift */,
-				ABF1D9AC2B96847100366B2D /* FavoriteDetailInteractor.swift */,
-				ABF1D9AE2B96848300366B2D /* FavoriteDetailPresenter.swift */,
-				ABF1D9B02B9684B900366B2D /* FavoriteDetailRouter.swift */,
+				ABF1D9B22B96AA9600366B2D /* View */,
+				ABF1D9B32B96AA9A00366B2D /* Interactor */,
+				ABF1D9B42B96AAA200366B2D /* Presenter */,
+				ABF1D9B52B96AAA800366B2D /* Router */,
 			);
 			path = FavoriteDetails;
+			sourceTree = "<group>";
+		};
+		ABF1D9B22B96AA9600366B2D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ABF1D9AA2B96845A00366B2D /* FavoriteDetailViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ABF1D9B32B96AA9A00366B2D /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				ABF1D9AC2B96847100366B2D /* FavoriteDetailInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		ABF1D9B42B96AAA200366B2D /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				ABF1D9AE2B96848300366B2D /* FavoriteDetailPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		ABF1D9B52B96AAA800366B2D /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				ABF1D9B02B9684B900366B2D /* FavoriteDetailRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
