@@ -85,10 +85,10 @@ extension ShowsViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let action = UIContextualAction(style: .normal, title: "Add to favorite") { action, view, completionHandler in
             completionHandler(true)
+            self.presenter.addFavorite(indexPath: indexPath.row)
         }
         action.backgroundColor = UIColor(hex: "#3F5E5A")
         let configuration = UISwipeActionsConfiguration(actions: [action])
-        presenter.addFavorite(indexPath: indexPath.row)
         return configuration
     }
     
@@ -98,7 +98,6 @@ extension ShowsViewController: ShowsUI{
     func getShows(shows: [ShowViewModel]) {
         DispatchQueue.main.async {
             self.tableView.reloadData()
-            print(shows)
         }
     }
 }

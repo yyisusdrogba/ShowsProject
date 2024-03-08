@@ -23,6 +23,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+<<<<<<< HEAD
             uuid = "39C2D4F4-B469-4002-A13F-7FC53A1F7AF7"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -39,6 +40,8 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+=======
+>>>>>>> favorite
             uuid = "F89384C0-70C2-4E71-968E-79FE913164D7"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -46,6 +49,7 @@
             filePath = "MoviesProject/Favorites/View/FavoriteViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+<<<<<<< HEAD
             startingLineNumber = "68"
             endingLineNumber = "68">
             <Locations>
@@ -140,6 +144,12 @@
                   offsetFromSymbolStart = "164">
                </Location>
             </Locations>
+=======
+            startingLineNumber = "95"
+            endingLineNumber = "95"
+            landmarkName = "unknown"
+            landmarkType = "0">
+>>>>>>> favorite
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -152,6 +162,7 @@
             filePath = "MoviesProject/Favorites/View/FavoriteViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+<<<<<<< HEAD
             startingLineNumber = "57"
             endingLineNumber = "57">
             <Locations>
@@ -186,6 +197,12 @@
                   offsetFromSymbolStart = "228">
                </Location>
             </Locations>
+=======
+            startingLineNumber = "84"
+            endingLineNumber = "84"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+>>>>>>> favorite
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -198,6 +215,7 @@
             filePath = "MoviesProject/Favorites/View/FavoriteViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+<<<<<<< HEAD
             startingLineNumber = "53"
             endingLineNumber = "53">
             <Locations>
@@ -232,6 +250,28 @@
                   offsetFromSymbolStart = "48">
                </Location>
             </Locations>
+=======
+            startingLineNumber = "80"
+            endingLineNumber = "80"
+            landmarkName = "tableView(_:numberOfRowsInSection:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FDE90A72-FB5C-47A2-BF1B-97079C179ED5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MoviesProject/Favorites/Interactor/FavoriteInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "getFavoriteShow(model:)"
+            landmarkType = "7">
+>>>>>>> favorite
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

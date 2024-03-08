@@ -1,15 +1,13 @@
 //
-//  ShowDetailView.swift
+//  FavoriteDetailViewController.swift
 //  MoviesProject
 //
-//  Created by Jesus Gonzalez on 07/02/24.
+//  Created by Jesus Gonzalez on 04/03/24.
 //
 
-import Foundation
 import UIKit
-import Kingfisher
 
-class ShowDetailView: UIViewController{
+class FavoriteDetailViewController: UIViewController {
     
     let activityIndicator:UIActivityIndicatorView = {
         let activityIndicator = UIActivityIndicatorView()
@@ -133,10 +131,10 @@ class ShowDetailView: UIViewController{
 //        tableView.backgroundColor = .orange
         return tableView
     }()
+  
+    var presenter: FavoriteDetailPresenter
     
-    let presenter: ShowDetailPresenter
-    
-    init(presenter: ShowDetailPresenter) {
+    init(presenter: FavoriteDetailPresenter) {
         self.presenter = presenter
         super.init(nibName: nil, bundle: nil)
     }
@@ -253,10 +251,10 @@ class ShowDetailView: UIViewController{
         }
         UIApplication.shared.open(url)
     }
-    
+
 }
 
-extension ShowDetailView: UICollectionViewDataSource{
+extension FavoriteDetailViewController: UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         presenter.episodes.count
     }
@@ -272,7 +270,7 @@ extension ShowDetailView: UICollectionViewDataSource{
     }
 }
 
-extension ShowDetailView: UITableViewDataSource{
+extension FavoriteDetailViewController: UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         presenter.cast.count
     }
@@ -285,7 +283,7 @@ extension ShowDetailView: UITableViewDataSource{
     }
 }
 
-extension ShowDetailView: DetailsUI{
+extension FavoriteDetailViewController:DetailsUI{
     
     func getDetail(details: DetailsViewModel) {
         DispatchQueue.main.async {
@@ -313,4 +311,5 @@ extension ShowDetailView: DetailsUI{
         }
     }
 }
+
 

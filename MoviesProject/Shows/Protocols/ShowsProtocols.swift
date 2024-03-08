@@ -29,9 +29,7 @@ protocol ShowsPresenterProtocol:AnyObject{
 protocol ShowsRouterProtocol: AnyObject{
     var routerDetail: ShowDetailRouter? { get  }
     var showsViewController: ShowsViewController? { get  }
-    func createView() -> UIViewController
     func getShowDetail(showId id: Int)
-    func favoriteDetails(favoriteModel: FavoriteViewModel)
 }
 
 

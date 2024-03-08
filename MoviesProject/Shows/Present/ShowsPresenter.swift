@@ -15,11 +15,13 @@ class ShowsPresenter:ShowsPresenterProtocol{
     var showsData: [ShowEntity] = []
     let mapper: ShowsMapper
     let router: ShowsRouterProtocol
+    let favoriteInteractor: FavoriteInteractor
     
-    init(interactor: ShowsInteractorProtocol,mapper: ShowsMapper = ShowsMapper(),router: ShowsRouterProtocol) {
+    init(interactor: ShowsInteractorProtocol,mapper: ShowsMapper = ShowsMapper(),router: ShowsRouterProtocol,favoriteInteractor: FavoriteInteractor) {
         self.interactor = interactor
         self.mapper = mapper
         self.router = router
+        self.favoriteInteractor = favoriteInteractor
     }
     
     func updateUI() async {
@@ -40,7 +42,8 @@ class ShowsPresenter:ShowsPresenterProtocol{
         let showName = showsData[indexPath].name
         let showImage = showsData[indexPath].imageSizes
         let favoriteModel = FavoriteViewModel(id: showID, name: showName, image: showImage)
-        router.favoriteDetails(favoriteModel: favoriteModel)
+        favoriteInteractor.getFavoriteShow(model: favoriteModel)
+        
     }
     
 }
