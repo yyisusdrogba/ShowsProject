@@ -56,8 +56,8 @@ class FavoriteTableViewCell: UITableViewCell {
     
     
     
-    func configure(model:FavoriteViewModel){
-        image.kf.setImage(with: URL(string: model.image))
+    func configure(model:FavoriteItems){
+        image.kf.setImage(with: URL(string: model.image!))
         title.text = model.name
     }
 

@@ -14,20 +14,29 @@ protocol UpdateUI{
 class FavoritePresenter{
       
     var ui: UpdateUI?
-    var favoritesShows:[FavoriteViewModel] = []
+//    var favoritesShows:[FavoriteViewModel] = []
+    var models: [FavoriteItems] = []
     var router: FavoriteRouter
+    var interactor: FavoriteInteractor
     
-    init(router: FavoriteRouter) {
+    init(router: FavoriteRouter,interactor:FavoriteInteractor) {
         self.router = router
+        self.interactor = interactor
     }
     
-    func passShows() {
-        ui?.obtainFavoritesShows(shows: favoritesShows)
-    }
+//    func passShows() {
+//        ui?.obtainFavoritesShows(shows: favoritesShows)
+//    }
     
     func passShowSelected(indexPath: Int){
-        let id = favoritesShows[indexPath].id
-        router.getFavoriteId(id: id)
+        let id = models[indexPath].id
+        let converStringInInt = Int(id!)
+        router.getFavoriteId(id: converStringInInt!)
+    }
+    
+    func deleteShowSlected(indexPath: Int){
+        let show = models[indexPath]
+        interactor.deleteItem(item: show)
     }
     
 }

@@ -9,6 +9,8 @@ import UIKit
 
 class FavoriteViewController: UIViewController {
     
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     let tableView: UITableView = {
         let table = UITableView()
         table.translatesAutoresizingMaskIntoConstraints = false
@@ -46,17 +48,42 @@ class FavoriteViewController: UIViewController {
             
         ])
     }
+    
+    func getAllItems(){
+        do{
+            presenter.models = try context.fetch(FavoriteItems.fetchRequest())
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+        catch{
+
+        }
+    }
+    
+    func deleteItem(item:FavoriteItems){
+        context.delete(item)
+        
+        do{
+            try context.save()
+            getAllItems()
+        }
+        catch{
+            
+        }
+    }
+    
 }
 
 extension FavoriteViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.favoritesShows.count
+        return presenter.models.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "favoriteTableViewCell", for: indexPath) as! FavoriteTableViewCell
-        let model = presenter.favoritesShows[indexPath.row]
+        let model = presenter.models[indexPath.row]
         cell.backgroundColor = UIColor(hex: "#2D2D2A")
         print("MODELOS:\(model)")
         cell.configure(model: model)
@@ -65,18 +92,31 @@ extension FavoriteViewController: UITableViewDataSource{
 
 }
 
-extension FavoriteViewController: UpdateUI{
-    func obtainFavoritesShows(shows: [FavoriteViewModel]) {
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
-    }
-}
+//extension FavoriteViewController: UpdateUI{
+//    func obtainFavoritesShows(shows: [FavoriteViewModel]) {
+//        DispatchQueue.main.async {
+//            self.tableView.reloadData()
+//        }
+//    }
+//}
 
 extension FavoriteViewController: UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         presenter.passShowSelected(indexPath: indexPath.row)
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .normal, title: "Delete") { action, view, completionHandler in
+            completionHandler(true)
+            let item = self.presenter.models[indexPath.row]
+            self.deleteItem(item: item)
+        }
+        action.backgroundColor = UIColor(hex: "#3F5E5A")
+        let configuration = UISwipeActionsConfiguration(actions: [action])
+        return configuration
+    }
+    
+    
 }
 

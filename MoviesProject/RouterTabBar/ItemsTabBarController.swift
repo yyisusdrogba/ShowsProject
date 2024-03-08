@@ -8,6 +8,10 @@
 import UIKit
 
 class ItemsTabBarController: UITabBarController, UITabBarControllerDelegate{
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+
             
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,14 +19,20 @@ class ItemsTabBarController: UITabBarController, UITabBarControllerDelegate{
         delegate = self
         view.backgroundColor = UIColor(hex: "#3F5E5A")
     }
-    
+        
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         
         if let navigationController = viewController as? UINavigationController{
             if let favoriteViewController = navigationController.topViewController as? FavoriteViewController{
-                DispatchQueue.main.async {
-                    favoriteViewController.tableView.reloadData()
-                    favoriteViewController.presenter.passShows()
+                do{
+                    DispatchQueue.main.async {
+                        favoriteViewController.tableView.reloadData()
+//                        favoriteViewController.presenter.passShows()
+                    }
+                    favoriteViewController.presenter.models = try context.fetch(FavoriteItems.fetchRequest())
+                }
+                catch{
+                    
                 }
             }
         }
@@ -34,9 +44,9 @@ class ItemsTabBarController: UITabBarController, UITabBarControllerDelegate{
         //MARK: - Configuration Views
         let favoriteRouter = FavoriteRouter()
         let favoriteInteractor = FavoriteInteractor()
-        let favoritePresenter = FavoritePresenter(router: favoriteRouter)
+        let favoritePresenter = FavoritePresenter(router: favoriteRouter, interactor: favoriteInteractor)
         let favoriteView = FavoriteViewController(presenter: favoritePresenter)
-        favoritePresenter.ui = favoriteView
+//        favoritePresenter.ui = favoriteView
         favoriteInteractor.presenter = favoritePresenter
         favoriteRouter.favoriteViewController = favoriteView
         favoriteRouter.favoriteDetailRouter = FavoriteDetailRouter()

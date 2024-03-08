@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AB0147FC2B98EB2D00AB09BD /* FavoriteDataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AB0147FA2B98EB2D00AB09BD /* FavoriteDataModel.xcdatamodeld */; };
+		AB0147FF2B98EF9C00AB09BD /* FavoriteItems+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0147FD2B98EF9C00AB09BD /* FavoriteItems+CoreDataClass.swift */; };
+		AB0148002B98EF9C00AB09BD /* FavoriteItems+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0147FE2B98EF9C00AB09BD /* FavoriteItems+CoreDataProperties.swift */; };
 		AB240D892B7E86D600D8A5D8 /* ShowsProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB240D882B7E86D600D8A5D8 /* ShowsProtocols.swift */; };
 		AB3A46952B7A981000C2D803 /* EpisodesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3A46942B7A981000C2D803 /* EpisodesCollectionViewCell.swift */; };
 		AB3A46972B7AF29700C2D803 /* CastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB3A46962B7AF29700C2D803 /* CastTableViewCell.swift */; };
@@ -51,6 +54,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AB0147FB2B98EB2D00AB09BD /* FavoriteDataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteDataModel.xcdatamodel; sourceTree = "<group>"; };
+		AB0147FD2B98EF9C00AB09BD /* FavoriteItems+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteItems+CoreDataClass.swift"; sourceTree = "<group>"; };
+		AB0147FE2B98EF9C00AB09BD /* FavoriteItems+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FavoriteItems+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		AB240D882B7E86D600D8A5D8 /* ShowsProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsProtocols.swift; sourceTree = "<group>"; };
 		AB3A46942B7A981000C2D803 /* EpisodesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodesCollectionViewCell.swift; sourceTree = "<group>"; };
 		AB3A46962B7AF29700C2D803 /* CastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastTableViewCell.swift; sourceTree = "<group>"; };
@@ -107,6 +113,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AB0148012B98F06300AB09BD /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				AB0147FD2B98EF9C00AB09BD /* FavoriteItems+CoreDataClass.swift */,
+				AB0147FE2B98EF9C00AB09BD /* FavoriteItems+CoreDataProperties.swift */,
+				AB0147FA2B98EB2D00AB09BD /* FavoriteDataModel.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		AB240D872B7E823300D8A5D8 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +175,7 @@
 		ABC64EA22B6086720017DE83 /* MoviesProject */ = {
 			isa = PBXGroup;
 			children = (
+				AB0148012B98F06300AB09BD /* CoreData */,
 				AB3A469A2B7D498B00C2D803 /* RouterTabBar */,
 				ABC64EBF2B6830520017DE83 /* Shows */,
 				ABEC24622B743CBA00C9218D /* ShowsDetails */,
@@ -549,11 +566,14 @@
 				ABC64EBA2B682B780017DE83 /* ShowsViewController.swift in Sources */,
 				ABAF13C72B8F902A0039AE2F /* FavoritePresenter.swift in Sources */,
 				AB240D892B7E86D600D8A5D8 /* ShowsProtocols.swift in Sources */,
+				AB0147FC2B98EB2D00AB09BD /* FavoriteDataModel.xcdatamodeld in Sources */,
 				ABEC247F2B76D00900C9218D /* CastViewModel.swift in Sources */,
 				ABF1D9AF2B96848300366B2D /* FavoriteDetailPresenter.swift in Sources */,
 				ABC64EA82B6086720017DE83 /* ViewController.swift in Sources */,
 				ABEC246C2B743D7600C9218D /* ShowDetailInteractor.swift in Sources */,
 				ABC64EDD2B6AB5900017DE83 /* ShowsMapper.swift in Sources */,
+				AB0147FF2B98EF9C00AB09BD /* FavoriteItems+CoreDataClass.swift in Sources */,
+				AB0148002B98EF9C00AB09BD /* FavoriteItems+CoreDataProperties.swift in Sources */,
 				ABC64EA42B6086720017DE83 /* AppDelegate.swift in Sources */,
 				ABC64ED82B699CD20017DE83 /* ShowsPresenter.swift in Sources */,
 				ABEC24872B76D3DB00C9218D /* DetailsMapper.swift in Sources */,
@@ -804,6 +824,19 @@
 			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		AB0147FA2B98EB2D00AB09BD /* FavoriteDataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AB0147FB2B98EB2D00AB09BD /* FavoriteDataModel.xcdatamodel */,
+			);
+			currentVersion = AB0147FB2B98EB2D00AB09BD /* FavoriteDataModel.xcdatamodel */;
+			path = FavoriteDataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = ABC64E982B6086720017DE83 /* Project object */;
 }
