@@ -36,6 +36,12 @@
 		ABC64EDB2B6AB5640017DE83 /* ShowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC64EDA2B6AB5640017DE83 /* ShowViewModel.swift */; };
 		ABC64EDD2B6AB5900017DE83 /* ShowsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC64EDC2B6AB5900017DE83 /* ShowsMapper.swift */; };
 		ABC64EE32B6D79F70017DE83 /* ShowsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC64EE22B6D79F70017DE83 /* ShowsTableViewCell.swift */; };
+		ABCA0F462BA21F7A00FE908D /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCA0F452BA21F7A00FE908D /* SearchPresenter.swift */; };
+		ABCA0F482BA21FAD00FE908D /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCA0F472BA21FAD00FE908D /* SearchInteractor.swift */; };
+		ABCA0F4A2BA232A600FE908D /* SoughtShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCA0F492BA232A600FE908D /* SoughtShow.swift */; };
+		ABCA0F4D2BA2703A00FE908D /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCA0F4C2BA2703A00FE908D /* SearchViewModel.swift */; };
+		ABCA0F4F2BA2704300FE908D /* SearchMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCA0F4E2BA2704300FE908D /* SearchMapper.swift */; };
+		ABCA0F522BA2840100FE908D /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABCA0F512BA2840100FE908D /* SearchTableViewCell.swift */; };
 		ABEC24612B740E5D00C9218D /* ShowsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEC24602B740E5D00C9218D /* ShowsRouter.swift */; };
 		ABEC246A2B743D6100C9218D /* ShowDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEC24692B743D6100C9218D /* ShowDetailView.swift */; };
 		ABEC246C2B743D7600C9218D /* ShowDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABEC246B2B743D7600C9218D /* ShowDetailInteractor.swift */; };
@@ -84,6 +90,12 @@
 		ABC64EDA2B6AB5640017DE83 /* ShowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowViewModel.swift; sourceTree = "<group>"; };
 		ABC64EDC2B6AB5900017DE83 /* ShowsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsMapper.swift; sourceTree = "<group>"; };
 		ABC64EE22B6D79F70017DE83 /* ShowsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsTableViewCell.swift; sourceTree = "<group>"; };
+		ABCA0F452BA21F7A00FE908D /* SearchPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
+		ABCA0F472BA21FAD00FE908D /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
+		ABCA0F492BA232A600FE908D /* SoughtShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoughtShow.swift; sourceTree = "<group>"; };
+		ABCA0F4C2BA2703A00FE908D /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		ABCA0F4E2BA2704300FE908D /* SearchMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchMapper.swift; sourceTree = "<group>"; };
+		ABCA0F512BA2840100FE908D /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 		ABEC24602B740E5D00C9218D /* ShowsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsRouter.swift; sourceTree = "<group>"; };
 		ABEC24692B743D6100C9218D /* ShowDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailView.swift; sourceTree = "<group>"; };
 		ABEC246B2B743D7600C9218D /* ShowDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailInteractor.swift; sourceTree = "<group>"; };
@@ -224,6 +236,8 @@
 		ABC64EC12B6830650017DE83 /* Sekeer */ = {
 			isa = PBXGroup;
 			children = (
+				ABCA0F502BA283E700FE908D /* SearchCellsCustome */,
+				ABCA0F4B2BA2702400FE908D /* ViewModel */,
 				ABC64ED02B68327C0017DE83 /* View */,
 				ABC64ECF2B6832760017DE83 /* Interactor */,
 				ABC64ECE2B68326E0017DE83 /* Present */,
@@ -323,6 +337,7 @@
 		ABC64ECD2B6832680017DE83 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				ABCA0F492BA232A600FE908D /* SoughtShow.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -330,6 +345,7 @@
 		ABC64ECE2B68326E0017DE83 /* Present */ = {
 			isa = PBXGroup;
 			children = (
+				ABCA0F452BA21F7A00FE908D /* SearchPresenter.swift */,
 			);
 			path = Present;
 			sourceTree = "<group>";
@@ -337,6 +353,7 @@
 		ABC64ECF2B6832760017DE83 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				ABCA0F472BA21FAD00FE908D /* SearchInteractor.swift */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -364,6 +381,23 @@
 				ABC64EE22B6D79F70017DE83 /* ShowsTableViewCell.swift */,
 			);
 			path = ShowsCellsCustome;
+			sourceTree = "<group>";
+		};
+		ABCA0F4B2BA2702400FE908D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				ABCA0F4C2BA2703A00FE908D /* SearchViewModel.swift */,
+				ABCA0F4E2BA2704300FE908D /* SearchMapper.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		ABCA0F502BA283E700FE908D /* SearchCellsCustome */ = {
+			isa = PBXGroup;
+			children = (
+				ABCA0F512BA2840100FE908D /* SearchTableViewCell.swift */,
+			);
+			path = SearchCellsCustome;
 			sourceTree = "<group>";
 		};
 		ABEC24622B743CBA00C9218D /* ShowsDetails */ = {
@@ -558,6 +592,7 @@
 				ABF1D9B12B9684B900366B2D /* FavoriteDetailRouter.swift in Sources */,
 				ABEC247D2B76CFFD00C9218D /* EpisodesViewModel.swift in Sources */,
 				ABC64EBE2B682C1B0017DE83 /* SearchViewController.swift in Sources */,
+				ABCA0F4D2BA2703A00FE908D /* SearchViewModel.swift in Sources */,
 				ABAF13C92B8F90DF0039AE2F /* FavoriteInteractor.swift in Sources */,
 				ABEC24782B75ABA800C9218D /* ShowCastEntity.swift in Sources */,
 				AB9438FB2B891B330071CB8C /* FavoriteViewModel.swift in Sources */,
@@ -572,12 +607,14 @@
 				ABC64EA82B6086720017DE83 /* ViewController.swift in Sources */,
 				ABEC246C2B743D7600C9218D /* ShowDetailInteractor.swift in Sources */,
 				ABC64EDD2B6AB5900017DE83 /* ShowsMapper.swift in Sources */,
+				ABCA0F462BA21F7A00FE908D /* SearchPresenter.swift in Sources */,
 				AB0147FF2B98EF9C00AB09BD /* FavoriteItems+CoreDataClass.swift in Sources */,
 				AB0148002B98EF9C00AB09BD /* FavoriteItems+CoreDataProperties.swift in Sources */,
 				ABC64EA42B6086720017DE83 /* AppDelegate.swift in Sources */,
 				ABC64ED82B699CD20017DE83 /* ShowsPresenter.swift in Sources */,
 				ABEC24872B76D3DB00C9218D /* DetailsMapper.swift in Sources */,
 				ABC64EBC2B682BDE0017DE83 /* FavoriteViewController.swift in Sources */,
+				ABCA0F522BA2840100FE908D /* SearchTableViewCell.swift in Sources */,
 				AB3A46972B7AF29700C2D803 /* CastTableViewCell.swift in Sources */,
 				ABF1D9AB2B96845A00366B2D /* FavoriteDetailViewController.swift in Sources */,
 				ABC64EA62B6086720017DE83 /* SceneDelegate.swift in Sources */,
@@ -585,10 +622,13 @@
 				AB9438F92B891AF00071CB8C /* FavoriteRouter.swift in Sources */,
 				ABEC246E2B743D8100C9218D /* ShowDetailPresenter.swift in Sources */,
 				ABC64EE32B6D79F70017DE83 /* ShowsTableViewCell.swift in Sources */,
+				ABCA0F4A2BA232A600FE908D /* SoughtShow.swift in Sources */,
+				ABCA0F4F2BA2704300FE908D /* SearchMapper.swift in Sources */,
 				ABEC24742B74485D00C9218D /* ShowDetailEntity.swift in Sources */,
 				ABC64ED22B6850990017DE83 /* ShowsInteractor.swift in Sources */,
 				ABEC24762B75819900C9218D /* ShowEpisodesEntity.swift in Sources */,
 				ABC64ED62B68591A0017DE83 /* ShowEntity.swift in Sources */,
+				ABCA0F482BA21FAD00FE908D /* SearchInteractor.swift in Sources */,
 				ABEC246A2B743D6100C9218D /* ShowDetailView.swift in Sources */,
 				ABEC24702B743DA100C9218D /* ShowDetailRouter.swift in Sources */,
 				AB9DFA962B72EE7800FB22F6 /* Extensions.swift in Sources */,

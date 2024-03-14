@@ -57,5 +57,4 @@ struct ShowEntity: Decodable {
         self.imageSizes = imageSizes
         self.summary = summary
     }
-    
 }
