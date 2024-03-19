@@ -20,7 +20,7 @@ class SearchViewController: UIViewController {
     let textField: UITextField = {
         let text = UITextField()
         let atributosPlaceholder: [NSAttributedString.Key: Any] = [
-            .foregroundColor: UIColor.white,
+            .foregroundColor: UIColor(hex: "#9b9b9b"),
             .font: UIFont.systemFont(ofSize: 14)
         ]
         let placeholder = NSAttributedString(string: "Search The Show", attributes: atributosPlaceholder)
@@ -30,6 +30,16 @@ class SearchViewController: UIViewController {
         text.backgroundColor = UIColor(hex: "#FFFFFF")
         text.layer.cornerRadius = 10.0
         return text
+    }()
+    
+    let btnSearch: UIButton = {
+        var configurate = UIButton.Configuration.bordered()
+        configurate.image = UIImage(named: "buscar")
+        let button = UIButton(type: .system)
+        button.configuration = configurate
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(getShowsWithBtn), for: .touchUpInside)
+        return button
     }()
     
     var presenter: SearchPresenter
@@ -48,32 +58,42 @@ class SearchViewController: UIViewController {
         textField.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.backgroundColor = UIColor(hex: "#3F5E5A")
         configurateViews()
-        view.backgroundColor = UIColor(hex: "#3F5E5A")
-    }
-    
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
     }
     
     func configurateViews(){
-//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-//        view.addGestureRecognizer(tapGesture)
         
         view.addSubview(textField)
         view.addSubview(tableView)
+        view.addSubview(btnSearch)
+        tableView.backgroundColor = UIColor(hex: "#3F5E5A")
         
         NSLayoutConstraint.activate([
             textField.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
             textField.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-            textField.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+            textField.trailingAnchor.constraint(equalTo: btnSearch.leadingAnchor),
+            textField.heightAnchor.constraint(equalToConstant: 36),
             
-            tableView.topAnchor.constraint(equalTo: textField.bottomAnchor),
+            btnSearch.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
+            btnSearch.leadingAnchor.constraint(equalTo: textField.trailingAnchor),
+            btnSearch.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+            btnSearch.widthAnchor.constraint(equalToConstant: 60),
+            btnSearch.heightAnchor.constraint(equalToConstant: 30),
+            
+            tableView.topAnchor.constraint(equalTo: textField.bottomAnchor,constant: 28),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            tableView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor),
         ])
+    }
+    
+    @objc func getShowsWithBtn(){
+        textField.resignFirstResponder()
+        guard let writtenShow = textField.text else {return}
+        Task{
+            await presenter.soughtShow(show: writtenShow)
+            tableView.reloadData()
+        }
     }
 }
 
@@ -108,6 +128,16 @@ extension SearchViewController: UITableViewDelegate{
         presenter.showSelected(indexPath: indexPath.row)
         tableView.deselectRow(at: indexPath, animated: true)
         print("ESTA ES LA POS\(indexPath.row)")
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let action = UIContextualAction(style: .normal, title: "Add to favorite") { action, view, completionHandler in
+            completionHandler(true)
+            self.presenter.addFavorite(indexPath: indexPath.row)
+        }
+        action.backgroundColor = UIColor(hex: "#3F5E5A")
+        let configuration = UISwipeActionsConfiguration(actions: [action])
+        return configuration
     }
 }
 

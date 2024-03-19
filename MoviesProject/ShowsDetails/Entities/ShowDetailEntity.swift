@@ -10,7 +10,7 @@ import Foundation
 struct ShowDetailEntity: Decodable {
     let name: String?
     let officialSite: String?
-    let ratingScore: Double?
+    let ratingScore: NSNumber?
     let network: String?
     let imageZises: String?
     let summary: String?
@@ -53,9 +53,22 @@ struct ShowDetailEntity: Decodable {
             self.officialSite = "https://support.google.com/webmasters/answer/2445990?hl=es"
         }
         
+//        if let ratingContainer = try? container.nestedContainer(keyedBy: detailRatingKeys.self, forKey: .ratingScore) {
+//            self.ratingScore = try ratingContainer.decode(Double.self, forKey: .average)
+//        } else {
+//            self.ratingScore = 0.0
+//        }
         if let ratingContainer = try? container.nestedContainer(keyedBy: detailRatingKeys.self, forKey: .ratingScore) {
-            self.ratingScore = try ratingContainer.decode(Double.self, forKey: .average)
-        } else {
+            if let decodeRating = try? ratingContainer.decode(Double.self, forKey: .average){
+                self.ratingScore = NSNumber(value: decodeRating)
+            }else if let decodeRating = try? ratingContainer.decode(Int.self, forKey: .average){
+                self.ratingScore = NSNumber(value: decodeRating)
+            }else if let decodeRating = try? ratingContainer.decode(Float.self, forKey: .average){
+                self.ratingScore = NSNumber(value: decodeRating)
+            }else{
+                self.ratingScore = 0.0
+            }
+        }else{
             self.ratingScore = 0.0
         }
         

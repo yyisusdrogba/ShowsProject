@@ -11,7 +11,7 @@ struct DetailsViewModel{
     
     let name: String?
     let site: String?
-    let ratingScore: Double?
+    let ratingScore: NSNumber?
     let network: String?
     let image: String?
     let summary: String?
