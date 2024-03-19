@@ -45,6 +45,10 @@ class SearchViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        textField.delegate = self
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.backgroundColor = UIColor(hex: "#3F5E5A")
         configurateViews()
         view.backgroundColor = UIColor(hex: "#3F5E5A")
     }
@@ -54,12 +58,8 @@ class SearchViewController: UIViewController {
     }
     
     func configurateViews(){
-        textField.delegate = self
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.backgroundColor = UIColor(hex: "#3F5E5A")
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        view.addGestureRecognizer(tapGesture)
+//        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+//        view.addGestureRecognizer(tapGesture)
         
         view.addSubview(textField)
         view.addSubview(tableView)
@@ -68,7 +68,6 @@ class SearchViewController: UIViewController {
             textField.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
             textField.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             textField.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-            textField.heightAnchor.constraint(equalToConstant: 40),
             
             tableView.topAnchor.constraint(equalTo: textField.bottomAnchor),
             tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -101,7 +100,15 @@ extension SearchViewController: UITextFieldDelegate{
 }
 
 extension SearchViewController: UITableViewDelegate{
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        presenter.showSelected(indexPath: indexPath.row)
+        tableView.deselectRow(at: indexPath, animated: true)
+        print("ESTA ES LA POS\(indexPath.row)")
+    }
 }
 
 extension SearchViewController: UITableViewDataSource{
