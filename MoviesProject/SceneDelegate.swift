@@ -17,23 +17,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.rootViewController = ItemsTabBarController()
         window?.makeKeyAndVisible()
-        let monitor = NWPathMonitor()
-        let queue = DispatchQueue(label: "InternetConectionMonitor")
-        monitor.start(queue: queue)
-        monitor.pathUpdateHandler = {path in
-            if path.status == .satisfied{
-                print("Hay conexion a internet")
-            }else{
-                print("No hay conexion a internet")
-                DispatchQueue.main.async {
-                    let alertController = UIAlertController(title: "Sin conexión", message: "Por favor, conéctate a internet para usar la aplicación.", preferredStyle: .alert)
-                    alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
-                        exit(0)
-                    }))
-                }
-            }
-        }
-        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

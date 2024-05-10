@@ -288,7 +288,7 @@ extension FavoriteDetailViewController:DetailsUI{
     func getDetail(details: DetailsViewModel) {
         DispatchQueue.main.async {
             self.name.text = details.name
-            self.score.text = String(describing: "Score:\(details.ratingScore!)")
+            self.score.text = String("Score:\(details.ratingScore!)")
             self.network.text = "\(details.network!):"
             self.image.kf.setImage(with: URL(string: details.image!))
             self.summary.text = details.summary!.removeHTMLTags()

@@ -33,7 +33,7 @@ class SearchViewController: UIViewController {
     }()
     
     let btnSearch: UIButton = {
-        var configurate = UIButton.Configuration.bordered()
+        var configurate = UIButton.Configuration.plain()
         configurate.image = UIImage(named: "buscar")
         let button = UIButton(type: .system)
         button.configuration = configurate
