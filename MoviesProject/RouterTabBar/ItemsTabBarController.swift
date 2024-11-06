@@ -59,10 +59,17 @@ class ItemsTabBarController: UITabBarController, UITabBarControllerDelegate{
         showsRouter.showsViewController = showsViewController
         showsPresenter.ui = showsViewController
         
+        let searchInteractor = SearchInteractor()
+        let searchRouter = SearchRouter()
+        let searchPresenter = SearchPresenter(interactor: searchInteractor, router: searchRouter, favoriteInteractor: favoriteInteractor)
+        let searchViewController = SearchViewController(presenter: searchPresenter)
+        searchRouter.searchDetailRouter = SearchDetailRouter()
+        searchRouter.view = searchViewController
+        
         //MARK: - ViewControllers
         let vcShowViewController = showsViewController
         let vcFavoriteViewContriller = favoriteView
-        let vcSekeerViewController = SearchViewController()
+        let vcSekeerViewController = searchViewController
                         
         
         //MARK: - tabBar Styles

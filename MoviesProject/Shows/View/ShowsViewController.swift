@@ -52,7 +52,6 @@ class ShowsViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
     }
-    
 }
 
 extension ShowsViewController: UITableViewDataSource{

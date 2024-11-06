@@ -54,8 +54,6 @@ class FavoriteTableViewCell: UITableViewCell {
         ])
     }
     
-    
-    
     func configure(model:FavoriteItems){
         image.kf.setImage(with: URL(string: model.image!))
         title.text = model.name
